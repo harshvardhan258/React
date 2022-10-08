@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 
-export default function Dropdown({ options, onSelectedChange, selected }) {
+export default function Dropdown({
+  options,
+  onSelectedChange,
+  selected,
+  label,
+}) {
   const [toggle, setToggle] = useState(false);
   const [color, setColor] = useState("");
   const ref = useRef();
@@ -40,7 +45,10 @@ export default function Dropdown({ options, onSelectedChange, selected }) {
     <>
       <div className="ui form" ref={ref}>
         <div className="field">
-          <label className="label">Select a Color</label>
+          <label className="label">
+            {label}
+            {/* Select a Color */}
+          </label>
           <div
             onClick={() => setToggle(!toggle)}
             className={`ui selection dropdown ${
@@ -61,7 +69,7 @@ export default function Dropdown({ options, onSelectedChange, selected }) {
           paddingTop: toggle === true ? "6rem" : "",
         }}
       >
-        Change the Text Color!
+        {/* Change the Text Color! */}
       </p>
     </>
   );
